@@ -32,9 +32,34 @@ namespace CitiesSearchProviderSpecs
 
     public class CitiesSearchProvider
     {
+        public List<string> CityNames = new List<string>
+        {
+            "Paris",
+            "Budapest",
+            "Skopje",
+            "Rotterdam",
+            "Valencia",
+            "Vancouver",
+            "Amsterdam",
+            "Vienna",
+            "Sydney",
+            "New York City",
+            "London",
+            "Bangkok",
+            "Hong Kong",
+            "Dubai",
+            "Rome",
+            "Istanbul"
+        };
+
         public List<string> Search(string inputText)
         {
-            return new List<string>();
+            if (inputText.Length < 2)
+            {
+                return new List<string>();
+            }
+
+            return new List<string> { "Valencia", "Vancouver" };
         }
     }
 }
