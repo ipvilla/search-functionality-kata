@@ -22,7 +22,7 @@ namespace CitiesSearchProviderSpecs
     {
         public List<string> Search(string inputText)
         {
-            throw new System.NotImplementedException();
+            return new List<string>();
         }
     }
 }
