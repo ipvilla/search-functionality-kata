@@ -70,12 +70,8 @@ namespace CitiesSearchProviderSpecs
             {
                 return new List<string>();
             }
-            
-            if (inputText.Equals("Va"))
-            {
-                return new List<string> { "Valencia", "Vancouver" };
-            }
-            return new List<string> { "Rotterdam", "Rome" };
+
+            return CityNames.Where(x => x.StartsWith(inputText)).ToList();
         }
     }
 }
