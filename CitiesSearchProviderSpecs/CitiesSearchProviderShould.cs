@@ -32,7 +32,7 @@ namespace CitiesSearchProviderSpecs
         [Test]
         public void return_Rotterdam_and_Rome_when_input_text_is_Ro()
         {
-            const string inputText = "ro";
+            const string inputText = "Ro";
             var citiesSearchProvider = new CitiesSearchProvider();
 
             var results = citiesSearchProvider.Search(inputText);
