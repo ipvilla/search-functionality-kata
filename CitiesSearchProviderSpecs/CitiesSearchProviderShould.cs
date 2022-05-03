@@ -59,7 +59,7 @@ namespace CitiesSearchProviderSpecs
         }
 
         [Test]
-        public void return_results_that_contain_the_input_text_in_any_position_of_the_name()
+        public void return_results_that_contain_the_input_text_in_any_position_of_the_city_name()
         {
             const string inputText = "ape";
 
@@ -98,7 +98,7 @@ namespace CitiesSearchProviderSpecs
                 return new List<string>();
             }
 
-            return CityNames.Where(x => x.StartsWith(inputText, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            return CityNames.Where(x => x.Contains(inputText, StringComparison.CurrentCultureIgnoreCase)).ToList();
         }
     }
 }
