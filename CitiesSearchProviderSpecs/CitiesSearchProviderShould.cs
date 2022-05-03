@@ -28,6 +28,18 @@ namespace CitiesSearchProviderSpecs
             Assert.IsTrue(results.Contains("Valencia"));
             Assert.IsTrue(results.Contains("Vancouver"));
         }
+
+        [Test]
+        public void return_Rotterdam_and_Rome_when_input_text_is_Ro()
+        {
+            const string inputText = "Ro";
+            var citiesSearchProvider = new CitiesSearchProvider();
+
+            var results = citiesSearchProvider.Search(inputText);
+
+            Assert.IsTrue(results.Contains("Rotterdam"));
+            Assert.IsTrue(results.Contains("Rome"));
+        }
     }
 
     public class CitiesSearchProvider
