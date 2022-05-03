@@ -67,6 +67,16 @@ namespace CitiesSearchProviderSpecs
 
             Assert.IsTrue(results.Contains("Budapest"));
         }
+
+        [Test]
+        public void return_all_results_when_input_text_is_an_asterisk()
+        {
+            const string inputText = "*";
+
+            var results = citiesSearchProvider.Search(inputText);
+
+            Assert.AreSame(citiesSearchProvider.CityNames, results);
+        }
     }
 
     public class CitiesSearchProvider
