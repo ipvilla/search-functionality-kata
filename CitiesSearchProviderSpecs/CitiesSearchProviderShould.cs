@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -83,7 +84,7 @@ namespace CitiesSearchProviderSpecs
                 return new List<string>();
             }
 
-            return CityNames.Where(x => x.StartsWith(inputText)).ToList();
+            return CityNames.Where(x => x.StartsWith(inputText, StringComparison.CurrentCultureIgnoreCase)).ToList();
         }
     }
 }
