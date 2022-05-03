@@ -122,6 +122,10 @@ namespace CitiesSearchProviderSpecs
 
         public List<string> Search(string inputText)
         {
+            if (inputText.Equals("*"))
+            {
+                return CityNames;
+            }
             if (inputText.Length < 2)
             {
                 return new List<string>();
