@@ -71,17 +71,36 @@ namespace CitiesSearchProviderSpecs
         [Test]
         public void return_all_results_when_input_text_is_an_asterisk()
         {
+            var expectedCityNames = new List<string>
+            {
+                "Paris",
+                "Budapest",
+                "Skopje",
+                "Rotterdam",
+                "Valencia",
+                "Vancouver",
+                "Amsterdam",
+                "Vienna",
+                "Sydney",
+                "New York City",
+                "London",
+                "Bangkok",
+                "Hong Kong",
+                "Dubai",
+                "Rome",
+                "Istanbul"
+            };
             const string inputText = "*";
 
             var results = citiesSearchProvider.Search(inputText);
 
-            Assert.AreSame(citiesSearchProvider.CityNames, results);
+            Assert.AreEqual(expectedCityNames, results);
         }
     }
 
     public class CitiesSearchProvider
     {
-        public List<string> CityNames = new List<string>
+        private readonly List<string> CityNames = new List<string>
         {
             "Paris",
             "Budapest",
