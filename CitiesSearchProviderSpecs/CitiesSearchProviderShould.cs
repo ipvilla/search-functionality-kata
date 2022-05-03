@@ -7,13 +7,20 @@ namespace CitiesSearchProviderSpecs
 {
     public class CitiesSearchProviderShould
     {
+        private CitiesSearchProvider citiesSearchProvider;
+
+        [SetUp]
+        public void SetUp()
+        {
+            citiesSearchProvider = new CitiesSearchProvider();
+        }
+
         [Test]
         public void return_no_results_if_input_text_has_less_than_2_characters()
         {
-            const string inputText = "a";
-            var citiesSearchProvider = new CitiesSearchProvider();
+            const string inputTextWithOnlyOneCharacter = "a";
 
-            var results = citiesSearchProvider.Search(inputText);
+            var results = citiesSearchProvider.Search(inputTextWithOnlyOneCharacter);
 
             Assert.IsTrue(!results.Any());
         }
@@ -21,10 +28,9 @@ namespace CitiesSearchProviderSpecs
         [Test]
         public void return_Valencia_and_Vancouver_when_input_text_is_Va()
         {
-            const string inputText = "Va";
-            var citiesSearchProvider = new CitiesSearchProvider();
+            const string inputTextWithTwoCharacters = "Va";
 
-            var results = citiesSearchProvider.Search(inputText);
+            var results = citiesSearchProvider.Search(inputTextWithTwoCharacters);
 
             Assert.IsTrue(results.Contains("Valencia"));
             Assert.IsTrue(results.Contains("Vancouver"));
@@ -33,10 +39,9 @@ namespace CitiesSearchProviderSpecs
         [Test]
         public void return_Rotterdam_and_Rome_when_input_text_is_Ro()
         {
-            const string inputText = "Ro";
-            var citiesSearchProvider = new CitiesSearchProvider();
+            const string inputTextWithTwoCharacters = "Ro";
 
-            var results = citiesSearchProvider.Search(inputText);
+            var results = citiesSearchProvider.Search(inputTextWithTwoCharacters);
 
             Assert.IsTrue(results.Contains("Rotterdam"));
             Assert.IsTrue(results.Contains("Rome"));
@@ -45,10 +50,9 @@ namespace CitiesSearchProviderSpecs
         [Test]
         public void return_results_being_case_insensitive()
         {
-            const string inputText = "va";
-            var citiesSearchProvider = new CitiesSearchProvider();
+            const string inputTextInLowerCase = "va";
 
-            var results = citiesSearchProvider.Search(inputText);
+            var results = citiesSearchProvider.Search(inputTextInLowerCase);
 
             Assert.IsTrue(results.Contains("Valencia"));
             Assert.IsTrue(results.Contains("Vancouver"));
