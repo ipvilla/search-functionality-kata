@@ -57,6 +57,16 @@ namespace CitiesSearchProviderSpecs
             Assert.IsTrue(results.Contains("Valencia"));
             Assert.IsTrue(results.Contains("Vancouver"));
         }
+
+        [Test]
+        public void return_results_that_contain_the_input_text_in_any_position_of_the_name()
+        {
+            const string inputText = "ape";
+
+            var results = citiesSearchProvider.Search(inputText);
+
+            Assert.IsTrue(results.Contains("Budapest"));
+        }
     }
 
     public class CitiesSearchProvider
